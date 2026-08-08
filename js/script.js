@@ -36,6 +36,7 @@ function switchTab (tab) {
     } else {
         rejectedContainer.classList.remove('hidden');
     }
+    updateStat();
 }
 
 
@@ -70,4 +71,21 @@ document.getElementById('jobs-container').addEventListener('click', function (ev
     else if (clickedElement.classList.contains('delete')) {
         parent.removeChild(card);
     }
+    updateStat();
 });
+
+
+function updateStat () {
+    const counts = {
+        all : allContainer.children.length,
+        interview : interviewContainer.children.length,
+        rejected : rejectedContainer.children.length,
+    };
+
+    totalStat.innerText = counts.all;
+    interviewStat.innerText = counts.interview;
+    rejectStat.innerText = counts.rejected;
+
+   
+};
+
