@@ -53,7 +53,8 @@ document.getElementById('jobs-container').addEventListener('click', function (ev
     const card = clickedElement.closest('.card');
 
     if (!card) return;
-    
+
+    const parent = card.parentNode;
     const status = card.querySelector('.status');
 
 
@@ -67,6 +68,6 @@ document.getElementById('jobs-container').addEventListener('click', function (ev
         rejectedContainer.appendChild(card);
     }
     else if (clickedElement.classList.contains('delete')) {
-
+        parent.removeChild(card);
     }
 });
