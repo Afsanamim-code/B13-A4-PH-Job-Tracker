@@ -95,5 +95,12 @@ function updateStat () {
 
 
     availableStat.innerText = counts[currentTab];
+
+
+    if (counts[currentTab] < 1) {
+        emptyState.classList.remove('hidden');
+    } else {
+        emptyState.classList.add('hidden');
+    }
 };
 
