@@ -7,9 +7,11 @@ const allContainer = document.getElementById('all-container');
 const interviewContainer = document.getElementById('interview-container');
 const rejectedContainer = document.getElementById('rejected-container');
 
+const emptyState = document.getElementById('empty-state');
 
 function switchTab (tab) {
     const tabs = ['all', 'interview', 'rejected'];
+    currentTab = tab;
 
 
     for (const t of tabs) {
@@ -28,7 +30,11 @@ function switchTab (tab) {
     for (const section of pages) {
         section.classList.add('hidden');
     }
+
     
+    emptyState.classList.add('hidden');
+
+
     if(tab === 'all') {
         allContainer.classList.remove('hidden');
     } else if (tab === 'interview') {
@@ -45,6 +51,7 @@ const totalStat = document.getElementById('stat-total');
 const interviewStat = document.getElementById('stat-interview');
 const rejectStat = document.getElementById('stat-rejected');
 
+const availableStat = document.getElementById('available');
 
 switchTab(currentTab);
 
@@ -86,6 +93,7 @@ function updateStat () {
     interviewStat.innerText = counts.interview;
     rejectStat.innerText = counts.rejected;
 
-   
+
+    availableStat.innerText = counts[currentTab];
 };
 
