@@ -39,6 +39,34 @@ function switchTab (tab) {
 }
 
 
+// stat update
+const totalStat = document.getElementById('stat-total');
+const interviewStat = document.getElementById('stat-interview');
+const rejectStat = document.getElementById('stat-rejected');
 
 
 switchTab(currentTab);
+
+
+document.getElementById('jobs-container').addEventListener('click', function (event) {
+    const clickedElement = event.target;
+    const card = clickedElement.closest('.card');
+
+    if (!card) return;
+    
+    const status = card.querySelector('.status');
+
+
+    if(clickedElement.classList.contains('interview')) {
+        status.innerText = 'INTERVIEWED';
+        interviewContainer.appendChild(card);
+
+    } 
+    else if (clickedElement.classList.contains('rejected')) {
+        status.innerText = 'REJECTED';
+        rejectedContainer.appendChild(card);
+    }
+    else if (clickedElement.classList.contains('delete')) {
+
+    }
+});
